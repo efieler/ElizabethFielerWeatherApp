@@ -14,20 +14,22 @@ body {
 }
 h1 {
   font-family: "Allura", cursive;
-  padding: 20px 0 20px 0;
+  padding: 5px 0 5px 0;
   font-size: 50px;
   margin-left: 10px;
   text-align: center;
   color: #7f5283;
 }
 h2 {
-  font-size: 30px;
-  padding-top: 5px;
+  font-size: 40px;
+  padding-top: 3px;
   font-family: "Chau Philomene One", sans-serif;
+  padding-bottom: 2px;
 }
 h3 {
-  font-size: 45px;
+  font-size: 50px;
   padding-top: 10px;
+  margin-bottom: 2px;
 }
 h4 {
   font-size: 15 px;
@@ -37,21 +39,22 @@ h4 {
 }
 .todayemoji {
   font-size: 45px;
-  padding-bottom: 12px;
+  padding-bottom: 4px;
+  margin: 2px 0px;
 }
 .currentday {
   font-size: 25px;
 }
 .todayinfo {
   padding-left: 10px;
-  padding-top: 10px;
+  padding-top: 5px;
   text-transform: capitalize;
 }
 .fivedays {
   text-align: center;
   margin-bottom: 10px;
   padding: 2px;
-  margin: 4px;
+  margin: 2px;
   font-size: 14px;
   color: #7f5283;
 }
@@ -76,7 +79,7 @@ h4 {
   border-width: 3px;
 }
 .searchbar {
-  margin: 20px 10px 20px 70px;
+  margin: 20px 10px 10px 70px;
   padding: 2px;
 }
 .plain {
