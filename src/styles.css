@@ -76,7 +76,8 @@ h4 {
   border-width: 3px;
 }
 .searchbar {
-  margin: 20px 0 20px 110px;
+  margin: 20px 10px 20px 110px;
+  padding: 2px;
 }
 .plain {
   text-decoration-line: none;
@@ -84,4 +85,11 @@ h4 {
 .showCurrentButton {
   border-width: 2px;
   border-color: #a6d1e6;
+}
+.footer {
+  text-align: center;
+  font-size: 4 px;
+  font-family: "Chau Philomene One", sans-serif;
+  padding: 1px;
+  margin-bottom: 2px;
 }
