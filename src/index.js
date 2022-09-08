@@ -41,9 +41,8 @@ function showCity(event) {
   let h2 = document.querySelector("h2");
   h2.innerHTML = `${searchInput.value}`;
   function displayCurrentWeather(response) {
-    let currentSearchTemp = Math.round(response.data.main.temp);
     let ftemp = document.querySelector("#ftemp");
-    ftemp.innerHTML = `${currentSearchTemp}`;
+    ftemp.innerHTML = Math.round(response.data.main.temp);
     let windSpeed = document.querySelector("#windSpeed");
     let currentWindSpeed = Math.round(response.data.wind.speed);
     windSpeed.innerHTML = `Wind: ${currentWindSpeed} mph`;
