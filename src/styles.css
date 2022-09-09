@@ -37,10 +37,12 @@ h4 {
 .row {
   font-family: "Chau Philomene One", sans-serif;
 }
-.todayemoji {
+.today-emoji {
+  resize: none;
   font-size: 40px;
   padding-bottom: 4px;
   margin: 2px 0px;
+  display: inline !important;
 }
 .currentday {
   font-size: 22px;
@@ -95,7 +97,6 @@ h4 {
 }
 .footer {
   text-align: center;
-
   font-family: "Chau Philomene One", sans-serif;
   padding: 1px;
   margin-bottom: 2px;
