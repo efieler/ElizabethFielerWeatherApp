@@ -52,6 +52,7 @@ function showCity(event) {
     let humidity = document.querySelector("#humidity");
     let currentHumidity = response.data.main.humidity;
     humidity.innerHTML = `Humidity: ${currentHumidity}%`;
+
     let todayWeatherEmoji = document.querySelector("#first-today-emoji");
     let currentWeatherEmoji = response.data.weather[0].icon;
     if (currentWeatherEmoji === "01n") {
@@ -94,6 +95,50 @@ function showCity(event) {
       currentWeatherEmoji = `❤️`;
     }
     todayWeatherEmoji.innerHTML = `${currentWeatherEmoji}`;
+
+    let todayFaceEmoji = document.querySelector("#second-today-emoji");
+    let currentFaceEmoji = response.data.weather[0].icon;
+    if (currentFaceEmoji === "01n") {
+      currentFaceEmoji = `🥰`;
+    } else if (currentFaceEmoji === "01d") {
+      currentFaceEmoji = `😎`;
+    } else if (currentFaceEmoji === "02n") {
+      currentFaceEmoji = `😴`;
+    } else if (currentFaceEmoji === "02d") {
+      currentFaceEmoji = `🥰`;
+    } else if (currentFaceEmoji === "03d") {
+      currentFaceEmoji = `😊`;
+    } else if (currentFaceEmoji === "03n") {
+      currentFaceEmoji = `😴`;
+    } else if (currentFaceEmoji === "04d") {
+      currentFaceEmoji = `😊`;
+    } else if (currentFaceEmoji === "04n") {
+      currentFaceEmoji = `😴`;
+    } else if (currentFaceEmoji === "09d") {
+      currentFaceEmoji = `🧐`;
+    } else if (currentFaceEmoji === "09n") {
+      currentFaceEmoji = `😴`;
+    } else if (currentFaceEmoji === "10d") {
+      currentFaceEmoji = `😅`;
+    } else if (currentFaceEmoji === "10n") {
+      currentFaceEmoji = `😴`;
+    } else if (currentFaceEmoji === "11d") {
+      currentFaceEmoji = `🥺`;
+    } else if (currentFaceEmoji === "11n") {
+      currentFaceEmoji = `😳`;
+    } else if (currentFaceEmoji === "13d") {
+      currentFaceEmoji = `🥶`;
+    } else if (currentFaceEmoji === "13n") {
+      currentFaceEmoji = `🥶`;
+    } else if (currentFaceEmoji === "50d") {
+      currentFaceEmoji = `🤪`;
+    } else if (currentFaceEmoji === "50n") {
+      currentFaceEmoji = `😴`;
+    } else {
+      currentFaceEmoji = `🤓`;
+    }
+    todayFaceEmoji.innerHTML = `${currentFaceEmoji}`;
+
     let now = new Date();
     let h4 = document.querySelector("h4");
     let date = now.getDate();
