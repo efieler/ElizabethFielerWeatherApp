@@ -52,10 +52,51 @@ function showCity(event) {
     let humidity = document.querySelector("#humidity");
     let currentHumidity = response.data.main.humidity;
     humidity.innerHTML = `Humidity: ${currentHumidity}%`;
+    let todayWeatherEmoji = document.querySelector("#first-today-emoji");
+    let currentWeatherEmoji = response.data.weather[0].icon;
+    if (currentWeatherEmoji === "01n") {
+      currentWeatherEmoji = `🌙`;
+    } else if (currentWeatherEmoji === "01d") {
+      currentWeatherEmoji = `☀️`;
+    } else if (currentWeatherEmoji === "02n") {
+      currentWeatherEmoji = `☁️`;
+    } else if (currentWeatherEmoji === "02d") {
+      currentWeatherEmoji = `🌤`;
+    } else if (currentWeatherEmoji === "03d") {
+      currentWeatherEmoji = `🌥`;
+    } else if (currentWeatherEmoji === "03n") {
+      currentWeatherEmoji = `☁`;
+    } else if (currentWeatherEmoji === "04d") {
+      currentWeatherEmoji = `☁️`;
+    } else if (currentWeatherEmoji === "04n") {
+      currentWeatherEmoji = `☁️`;
+    } else if (currentWeatherEmoji === "09d") {
+      currentWeatherEmoji = `🌦`;
+    } else if (currentWeatherEmoji === "09n") {
+      currentWeatherEmoji = `🌧`;
+    } else if (currentWeatherEmoji === "10d") {
+      currentWeatherEmoji = `🌧`;
+    } else if (currentWeatherEmoji === "10n") {
+      currentWeatherEmoji = `🌧`;
+    } else if (currentWeatherEmoji === "11d") {
+      currentWeatherEmoji = `⛈`;
+    } else if (currentWeatherEmoji === "11n") {
+      currentWeatherEmoji = `⛈`;
+    } else if (currentWeatherEmoji === "13d") {
+      currentWeatherEmoji = `❄️`;
+    } else if (currentWeatherEmoji === "13n") {
+      currentWeatherEmoji = `❄️`;
+    } else if (currentWeatherEmoji === "50d") {
+      currentWeatherEmoji = `💦`;
+    } else if (currentWeatherEmoji === "50n") {
+      currentWeatherEmoji = `💦`;
+    } else {
+      currentWeatherEmoji = `❤️`;
+    }
+    todayWeatherEmoji.innerHTML = `${currentWeatherEmoji}`;
     let now = new Date();
     let h4 = document.querySelector("h4");
     let date = now.getDate();
-
     let days = [
       "Sunday",
       "Monday",
