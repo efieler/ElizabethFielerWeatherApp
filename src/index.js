@@ -42,20 +42,20 @@ function showCity(event) {
   h2.innerHTML = `${searchInput.value}`;
   function displayCurrentWeather(response) {
     let ctemp = document.querySelector("#ctemp");
-    ctemp.innerHTML = Math.round(response.data.main.temp);
-    celsiusTemperature = response.data.main.temp;
     let tempUnit = document.querySelector("#tempUnit");
-    tempUnit.innerHTML = `°C`;
     let windSpeed = document.querySelector("#windSpeed");
     let currentWindSpeed = Math.round(response.data.wind.speed);
-    windSpeed.innerHTML = `Wind: ${currentWindSpeed} mph`;
     let descriptions = document.querySelector("#descriptions");
     let currentDescription = response.data.weather[0].description;
-    descriptions.innerHTML = `${currentDescription}`;
     let humidity = document.querySelector("#humidity");
     let currentHumidity = response.data.main.humidity;
-    humidity.innerHTML = `Humidity: ${currentHumidity}%`;
     let todayWeatherEmoji = document.querySelector("#first-today-emoji");
+    windSpeed.innerHTML = `Wind: ${currentWindSpeed} mph`;
+    humidity.innerHTML = `Humidity: ${currentHumidity}%`;
+    descriptions.innerHTML = `${currentDescription}`;
+    ctemp.innerHTML = Math.round(response.data.main.temp);
+    celsiusTemperature = response.data.main.temp;
+    tempUnit.innerHTML = `°C`;
     let currentWeatherEmoji = response.data.weather[0].icon;
     if (currentWeatherEmoji === "01n") {
       currentWeatherEmoji = `🌙`;
