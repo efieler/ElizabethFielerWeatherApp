@@ -52,7 +52,6 @@ function showCity(event) {
     let humidity = document.querySelector("#humidity");
     let currentHumidity = response.data.main.humidity;
     humidity.innerHTML = `Humidity: ${currentHumidity}%`;
-
     let todayWeatherEmoji = document.querySelector("#first-today-emoji");
     let currentWeatherEmoji = response.data.weather[0].icon;
     if (currentWeatherEmoji === "01n") {
