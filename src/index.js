@@ -41,8 +41,11 @@ function showCity(event) {
   let h2 = document.querySelector("h2");
   h2.innerHTML = `${searchInput.value}`;
   function displayCurrentWeather(response) {
-    let ftemp = document.querySelector("#ftemp");
-    ftemp.innerHTML = Math.round(response.data.main.temp);
+    let ctemp = document.querySelector("#ctemp");
+    ctemp.innerHTML = Math.round(response.data.main.temp);
+    celsiusTemperature = response.data.main.temp;
+    let tempUnit = document.querySelector("#tempUnit");
+    tempUnit.innerHTML = `°C`;
     let windSpeed = document.querySelector("#windSpeed");
     let currentWindSpeed = Math.round(response.data.wind.speed);
     windSpeed.innerHTML = `Wind: ${currentWindSpeed} mph`;
@@ -176,9 +179,34 @@ function showCity(event) {
   }
   let city = `${searchInput.value}`;
   let apiKey = "4fa0a71d5203b32794359d1f5d59a57e";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayCurrentWeather);
 }
+
+function showFahrenTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#ctemp");
+  let ftemp = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(ftemp);
+  let tempUnit = document.querySelector("#tempUnit");
+  tempUnit.innerHTML = `°F`;
+}
+function showCelTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#ctemp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  let tempUnit = document.querySelector("#tempUnit");
+  tempUnit.innerHTML = `°C`;
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("#city-search");
 form.addEventListener("submit", showCity);
+
+let fahrenheitLink = document.querySelector("#fahren-link");
+fahrenheitLink.addEventListener("click", showFahrenTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelTemp);
