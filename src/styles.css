@@ -40,7 +40,7 @@ h4 {
 .today-emoji {
   resize: none;
   font-size: 40px;
-  padding-bottom: 4px;
+  padding-bottom: 2px;
   margin: 2px 0px;
   display: inline !important;
 }
@@ -74,7 +74,7 @@ h4 {
 }
 .card {
   padding: 4px;
-  margin: 3px;
+  margin: 1px;
   color: 7F5283;
   background-color: #a6d1e6;
   margin-bottom: 2px;

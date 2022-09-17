@@ -1,3 +1,40 @@
+function formatDate(timestamp) {
+  let now = new Date();
+  let h4 = document.querySelector("h4");
+  let date = now.getDate();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  if (minutes <= 9) {
+    minutes = `0${minutes}`;
+  }
+  let year = now.getFullYear();
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+  h4.innerHTML = `${month} ${date}, ${year} </br> ${day}, ${hours}:${minutes}`;
+}
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -12,7 +49,6 @@ function formatDay(timestamp) {
   ];
   return days[day];
 }
-
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
@@ -23,8 +59,6 @@ function displayForecast(response) {
         forecastHTML +
         `
     <div class="fivedays col-2">
-    10/12/22
-    <br />
     ${formatDay(forecastDay.dt)}
     
     <div class="card col-2">
@@ -72,6 +106,7 @@ function displayCurrentWeather(response) {
   celsiusTemperature = response.data.main.temp;
   tempUnit.innerHTML = `°F`;
   getForecast(response.data.coord);
+  formatDate(response.data.dt * 1000);
   let currentWeatherEmoji = response.data.weather[0].icon;
   if (currentWeatherEmoji === "01n") {
     currentWeatherEmoji = `🌙`;
@@ -156,42 +191,6 @@ function displayCurrentWeather(response) {
     currentFaceEmoji = `🤓`;
   }
   todayFaceEmoji.innerHTML = `${currentFaceEmoji}`;
-
-  let now = new Date();
-  let h4 = document.querySelector("h4");
-  let date = now.getDate();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[now.getDay()];
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-  if (minutes <= 9) {
-    minutes = `0${minutes}`;
-  }
-  let year = now.getFullYear();
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let month = months[now.getMonth()];
-  h4.innerHTML = `${month} ${date}, ${year} </br> ${day}, ${hours}:${minutes}`;
 }
 
 function search(city) {
