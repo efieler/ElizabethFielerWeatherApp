@@ -21,7 +21,7 @@ h1 {
   color: #7f5283;
 }
 h2 {
-  font-size: 30px;
+  font-size: 37px;
   padding-top: 3px;
   font-family: "Chau Philomene One", sans-serif;
   padding-bottom: 2px;
@@ -55,7 +55,7 @@ h4 {
 .fivedays {
   text-align: center;
   margin-bottom: 8px;
-  padding: 1px;
+  padding: 2px;
   margin: 7px;
   font-size: 14px;
   color: #7f5283;
@@ -73,8 +73,8 @@ h4 {
   text-align: center;
 }
 .card {
-  padding: 5px;
-  margin: 2px;
+  padding: 4px;
+  margin: 3px;
   color: 7F5283;
   background-color: #a6d1e6;
   margin-bottom: 2px;
@@ -107,6 +107,7 @@ h4 {
   padding: 1px;
   width: 88 px;
   margin: 1px;
+  margin-left: 0px;
   color: 7F5283;
   margin-bottom: 2px;
   border-color: #7f5283;

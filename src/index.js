@@ -35,28 +35,48 @@ let months = [
 let month = months[now.getMonth()];
 h4.innerHTML = `${month} ${date}, ${year} </br> ${day}, ${hours}:${minutes}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
-  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
   let forecastHTML = `<div class = "row forecast">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="fivedays col-2">
     10/12/22
     <br />
-    ${day}
+    ${formatDay(forecastDay.dt)}
+    
     <div class="card col-2">
       <ul class="list-group list-group-flush forecast">
         <li class="list-group-item fivedayemoji">🌤</li>
-        <li class="list-group-item hightemp">74°F</li>
-        <li class="list-group-item lowtemp">65°F</li>
-        <li class="list-group-item fivedayemoji">😍</li>
+        <li class="list-group-item hightemp">${Math.round(
+          forecastDay.temp.max
+        )}°C</li>
+        <li class="list-group-item lowtemp">${Math.round(
+          forecastDay.temp.min
+        )}°C</li>
       </ul>
      </div>
    </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -250,3 +270,5 @@ fahrenheitLink.addEventListener("click", showFahrenTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelTemp);
+
+search("Dallas");
