@@ -56,6 +56,7 @@ function displayForecast(response) {
   let forecastHTML = `<div class = "row forecast">`;
   forecast.forEach(function (forecastDay, index) {
     let icon = forecastDay.weather[0].icon;
+    let faceEmoji = forecastDay.weather[0].icon;
     if (icon === "01n") {
       icon = `🌙`;
     } else if (icon === "01d") {
@@ -95,6 +96,46 @@ function displayForecast(response) {
     } else {
       icon = `❤️`;
     }
+    if (faceEmoji === "01n") {
+      faceEmoji = `🥰`;
+    } else if (faceEmoji === "01d") {
+      faceEmoji = `😎`;
+    } else if (faceEmoji === "02n") {
+      faceEmoji = `😴`;
+    } else if (faceEmoji === "02d") {
+      faceEmoji = `🥰`;
+    } else if (faceEmoji === "03d") {
+      faceEmoji = `😊`;
+    } else if (faceEmoji === "03n") {
+      faceEmoji = `😴`;
+    } else if (faceEmoji === "04d") {
+      faceEmoji = `😊`;
+    } else if (faceEmoji === "04n") {
+      faceEmoji = `😴`;
+    } else if (faceEmoji === "09d") {
+      faceEmoji = `🧐`;
+    } else if (faceEmoji === "09n") {
+      faceEmoji = `😴`;
+    } else if (faceEmoji === "10d") {
+      faceEmoji = `😅`;
+    } else if (faceEmoji === "10n") {
+      faceEmoji = `😴`;
+    } else if (faceEmoji === "11d") {
+      faceEmoji = `🥺`;
+    } else if (faceEmoji === "11n") {
+      faceEmoji = `😳`;
+    } else if (faceEmoji === "13d") {
+      faceEmoji = `🥶`;
+    } else if (faceEmoji === "13n") {
+      faceEmoji = `🥶`;
+    } else if (faceEmoji === "50d") {
+      faceEmoji = `🤪`;
+    } else if (faceEmoji === "50n") {
+      faceEmoji = `😴`;
+    } else {
+      faceEmoji = `🤓`;
+    }
+
     if (index < 5) {
       forecastHTML =
         forecastHTML +
@@ -112,6 +153,8 @@ function displayForecast(response) {
         <li class="list-group-item lowtemp">${Math.round(
           forecastDay.temp.min
         )}°F</li>
+        <li class="list-group-item fivedayemoji">${faceEmoji}</li>
+
       </ul>
      </div>
    </div>`;
