@@ -233,6 +233,8 @@ function displayCurrentWeather(response) {
     currentFaceEmoji = `🤓`;
   }
   todayFaceEmoji.innerHTML = `${currentFaceEmoji}`;
+  let cityInputElement = document.querySelector("#search-city-input");
+  cityInputElement.value = "";
 }
 
 function search(city) {
