@@ -36,6 +36,7 @@ let month = months[now.getMonth()];
 h4.innerHTML = `${month} ${date}, ${year} </br> ${day}, ${hours}:${minutes}`;
 
 function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#weather-forecast");
   let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
   let forecastHTML = `<div class = "row forecast">`;
@@ -64,8 +65,8 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "26a1abb3cdfdf50b8247b32ad5042aa5";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiKey = "3bc520cc14bbdedfd7e45158f2ef0439";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -89,7 +90,6 @@ function displayCurrentWeather(response) {
   celsiusTemperature = response.data.main.temp;
   tempUnit.innerHTML = `°C`;
   getForecast(response.data.coord);
-  displayForecast();
   let currentWeatherEmoji = response.data.weather[0].icon;
   if (currentWeatherEmoji === "01n") {
     currentWeatherEmoji = `🌙`;
@@ -210,11 +210,10 @@ function displayCurrentWeather(response) {
   ];
   let month = months[now.getMonth()];
   h4.innerHTML = `${month} ${date}, ${year} </br> ${day}, ${hours}:${minutes}`;
-  displayForecast();
 }
 
 function search(city) {
-  let apiKey = "26a1abb3cdfdf50b8247b32ad5042aa5";
+  let apiKey = "3bc520cc14bbdedfd7e45158f2ef0439";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayCurrentWeather);
 }
