@@ -49,21 +49,63 @@ function formatDay(timestamp) {
   ];
   return days[day];
 }
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class = "row forecast">`;
   forecast.forEach(function (forecastDay, index) {
+    let icon = forecastDay.weather[0].icon;
+    if (icon === "01n") {
+      icon = `🌙`;
+    } else if (icon === "01d") {
+      icon = `☀️`;
+    } else if (icon === "02n") {
+      icon = `☁️`;
+    } else if (icon === "02d") {
+      icon = `🌤`;
+    } else if (icon === "03d") {
+      icon = `🌥`;
+    } else if (icon === "03n") {
+      icon = `☁`;
+    } else if (icon === "04d") {
+      icon = `☁️`;
+    } else if (icon === "04n") {
+      icon = `☁️`;
+    } else if (icon === "09d") {
+      icon = `🌦`;
+    } else if (icon === "09n") {
+      icon = `🌧`;
+    } else if (icon === "10d") {
+      icon = `🌧`;
+    } else if (icon === "10n") {
+      icon = `🌧`;
+    } else if (icon === "11d") {
+      icon = `⛈`;
+    } else if (icon === "11n") {
+      icon = `⛈`;
+    } else if (icon === "13d") {
+      icon = `❄️`;
+    } else if (icon === "13n") {
+      icon = `❄️`;
+    } else if (icon === "50d") {
+      icon = `💦`;
+    } else if (icon === "50n") {
+      icon = `💦`;
+    } else {
+      icon = `❤️`;
+    }
     if (index < 5) {
       forecastHTML =
         forecastHTML +
         `
     <div class="fivedays col-2">
     ${formatDay(forecastDay.dt)}
-    
     <div class="card col-2">
       <ul class="list-group list-group-flush forecast">
-        <li class="list-group-item fivedayemoji">🌤</li>
+        <li class="list-group-item fivedayemoji">
+        ${icon}
+        </li>
         <li class="list-group-item hightemp">${Math.round(
           forecastDay.temp.max
         )}°F</li>
